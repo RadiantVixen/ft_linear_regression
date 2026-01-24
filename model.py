@@ -2,18 +2,18 @@ import json
 
 
 def thetas():
-    try: 
+    try:
         with open("thetas.json", "r") as f:
             data = json.load(f)
     except:
         print("the thetas file is not valide")
         exit(-1)
-    return data["theta0"], data["theta1"]
+    return data["theta0"], data["theta1"], data["max_mileage"]
 
 
 
-def main():
-    theta0 , theta1 = thetas()
+def PriceEstimation():
+    theta0 , theta1, max_mileage = thetas()
     input_value = None
     while not input_value:
             input_value = input("give me the mileage i give u the price\n")
@@ -32,13 +32,13 @@ def main():
         exit(-1)
 
     print("here u are")
-    normalized_mileage = input_value / 240000
+    normalized_mileage = input_value / max_mileage
     estimatePrice = theta0 + theta1 * normalized_mileage
     print(f"{estimatePrice:.3f}")
 
 
 
 if __name__=="__main__":
-    main()
+    PriceEstimation()
 
 

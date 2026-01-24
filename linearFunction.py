@@ -62,12 +62,12 @@ def trainModel():
     mileage, realPrice, n = readData()
     normalized_mileage= normalizeMileage(mileage)
 
-    for _ in range(epochs):
-        d0 , d1 = DerivativeThetas(n, realPrice, theta0, theta1, normalized_mileage)
-
-        theta0 -= learningRate * d0
-        theta1 -= learningRate * d1
-        save_thetas(theta0, theta1, max(mileage))
+    # for _ in range(epochs):
+    d0 , d1 = DerivativeThetas(n, realPrice, theta0, theta1, normalized_mileage)
+    theta0 -= learningRate * d0
+    theta1 -= learningRate * d1
+    
+    save_thetas(theta0, theta1, max(mileage))
 
 
 
