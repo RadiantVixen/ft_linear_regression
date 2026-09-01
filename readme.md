@@ -1,7 +1,7 @@
 <div align="center">
 
   <h1>📈 ft_linear_regression</h1>
-  <p><strong>A implementation of univariate linear regression with gradient descent from scratch.</strong></p>
+  <p><strong>An implementation of univariate linear regression with gradient descent from scratch.</strong></p>
 
   <!-- Badges -->
   <p>
@@ -19,8 +19,8 @@
     </a>
   </p>
 
-  <!-- Header Visual GIF (Local Relative Path) -->
-  <img src="./assets/demo.gif" alt="Gradient Descent Demo" width="650"/>
+  <!-- Header Visual GIF (Direct Web Link) -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Gradient_descent.gif" alt="Gradient Descent Convergence" width="650"/>
 
 </div>
 
@@ -52,7 +52,7 @@
 ## 🧮 How It Works
 
 ### 1. Hypothesis Function
-The model estimates the car price ($\hat{y}$) given a input mileage ($x$) using a simple linear equation:
+The model estimates the car price ($\hat{y}$) given an input mileage ($x$) using a simple linear equation:
 
 $$\hat{y} = f(x) = \theta_0 + (\theta_1 \cdot x)$$
 
@@ -85,8 +85,6 @@ $$\theta_1 := \theta_1 - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left( f(x^{(i)
 
 ```txt
 .
-├── assets/             # Images and demo GIFs for README
-│   └── demo.gif
 ├── data.csv            # Dataset containing Mileage (km) and Price
 ├── train.py            # Gradient descent model trainer
 ├── predict.py          # Interactive car price estimator
