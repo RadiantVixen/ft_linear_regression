@@ -3,6 +3,7 @@
   <h1>📈 ft_linear_regression</h1>
   <p><strong>A implementation of univariate linear regression with gradient descent from scratch.</strong></p>
 
+  <!-- Badges -->
   <p>
     <a href="https://github.com/RadiantVixen/ft_linear_regression/stargazers">
       <img src="https://img.shields.io/github/stars/RadiantVixen/ft_linear_regression?style=for-the-badge&color=ff69b4" alt="Stars" />
@@ -18,7 +19,8 @@
     </a>
   </p>
 
-  <img src="https://miro.medium.com/1*OG1d4edy5BFYeQ0yHjBOJA.gif" alt="Gradient Descent Convergence GIF" width="650"/>
+  <!-- Header Visual GIF (Local Relative Path) -->
+  <img src="./assets/demo.gif" alt="Gradient Descent Demo" width="650"/>
 
 </div>
 
@@ -83,6 +85,8 @@ $$\theta_1 := \theta_1 - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left( f(x^{(i)
 
 ```txt
 .
+├── assets/             # Images and demo GIFs for README
+│   └── demo.gif
 ├── data.csv            # Dataset containing Mileage (km) and Price
 ├── train.py            # Gradient descent model trainer
 ├── predict.py          # Interactive car price estimator
