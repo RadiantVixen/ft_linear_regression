@@ -1,5 +1,6 @@
 <div align="center">
 
+  <!-- Header Banner / Title -->
   <h1>📈 ft_linear_regression</h1>
   <p><strong>An implementation of univariate linear regression with gradient descent from scratch.</strong></p>
 
@@ -19,8 +20,8 @@
     </a>
   </p>
 
-  <!-- Header Visual GIF (Direct Web Link) -->
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Gradient_descent.gif" alt="Gradient Descent Convergence" width="650"/>
+  <!-- Animated Preview / Header Visual -->
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXU1ZnRrbTRjc2RmcGhyandhdXQzOWlyN2pxa3ZsdTZwMGx1eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1R1tvI9svkIWwpVYr/giphy.gif" alt="Training Visual Demo" width="650"/>
 
 </div>
 
@@ -29,55 +30,62 @@
 ## 📋 Table of Contents
 - [About The Project](#-about-the-project)
 - [How It Works](#-how-it-works)
-  - [1. Hypothesis Function](#1-hypothesis-function)
-  - [2. Feature Normalization](#2-feature-normalization)
-  - [3. Gradient Descent Optimization](#3-gradient-descent-optimization)
+  - [Hypothesis Function](#1-hypothesis-function)
+  - [Feature Feature Scaling (Normalization)](#2-feature-scaling-normalization)
+  - [Gradient Descent Updates](#3-gradient-descent-updates)
 - [Project Architecture](#-project-architecture)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation & Setup](#installation--setup)
+- [Usage](#-usage)
+  - [1. Train the Model](#1-train-the-model)
+  - [2. Predict Mileage / Price](#2-predict-mileage--price)
+  - [3. (Bonus) Precision Evaluation & Visualizer](#3-bonus-precision-evaluation--visualizer)
 - [Visualizations](#-visualizations)
 
 ---
 
 ## 💡 About The Project
 
-**`ft_linear_regression`** is a machine learning project designed to predict car prices based on mileage. The goal is to build a complete **univariate linear regression model trained via gradient descent** entirely from scratch in Python—without relying on external ML frameworks like `scikit-learn` or `TensorFlow`.
+**ft_linear_regression** is an introductory Machine Learning project designed to predict car prices based on mileage. The core objective is to understand and implement **univariate linear regression with gradient descent** entirely from scratch—without relying on high-level machine learning libraries like `scikit-learn` for model fitting.
 
-### Key Features
-* ⚙️ **From-Scratch Gradient Descent**: Custom batch gradient descent optimization loop.
-* 📏 **Feature Scaling**: Min-Max feature normalization to guarantee gradient stability and quick convergence.
-* 💾 **State Persistence**: Serializes trained parameters ($\theta_0$ and $\theta_1$) into a JSON configuration for instant prediction retrieval.
-* 📊 **Data Visualization**: Real-time plots tracking cost reduction and displaying the linear fit over raw data points.
+### Key Highlights
+* ⚙️ **Custom Gradient Descent**: Optimized step-by-step optimization loop.
+* 📏 **Feature Normalization**: Implemented **Min-Max Scaling** (or **Z-score Standardization**) to ensure smooth gradient descent convergence.
+* 📊 **Data Visualization**: Real-time plots comparing original raw data points against the fitted linear hypothesis line.
+* 🎯 **Precision Metrics**: Evaluated performance using Mean Squared Error ($MSE$) and the Coefficient of Determination ($R^2$).
 
 ---
 
 ## 🧮 How It Works
 
 ### 1. Hypothesis Function
-The model estimates the car price ($\hat{y}$) given an input mileage ($x$) using a simple linear equation:
+The model predicts a car's price ($\hat{y}$) given its mileage ($x$) using a simple linear equation:
 
 $$\hat{y} = f(x) = \theta_0 + (\theta_1 \cdot x)$$
 
-* **$\theta_0$ (bias)**: Y-intercept representing base price value.
-* **$\theta_1$ (weight)**: Rate of price decrease relative to mileage increase.
+* **$\theta_0$ (bias)**: Intercept on the Y-axis.
+* **$\theta_1$ (weight)**: Slope indicating how price changes with mileage.
 
 ---
 
-### 2. Feature Normalization
-To prevent vanishing or exploding gradients due to high mileage values, features are scaled to the range $[0, 1]$ before training:
+### 2. Feature Scaling (Normalization)
+To prevent vanishing or exploding gradients due to differences in scale between mileage (e.g., $10,000 - 240,000$) and price, features are normalized prior to training:
 
-$$x_{\text{scaled}} = \frac{x - x_{\text{min}}}{x_{\text{max}} - x_{\text{min}}}$$
+$$x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
 
 ---
 
-### 3. Gradient Descent Optimization
-Parameters $\theta_0$ and $\theta_1$ are updated iteratively over batch epochs to minimize the **Mean Squared Error (MSE)** cost function:
+### 3. Gradient Descent Updates
+The parameters $\theta_0$ and $\theta_1$ are iteratively updated to minimize the **Mean Squared Error (MSE)** loss function:
 
 $$\theta_0 := \theta_0 - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left( f(x^{(i)}) - y^{(i)} \right)$$
 
-$$\theta_1 := \theta_1 - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left( f(x^{(i)}) - y^{(i)} \right) \cdot x_{\text{scaled}}^{(i)}$$
+$$\theta_1 := \theta_1 - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left( f(x^{(i)}) - y^{(i)} \right) \cdot x^{(i)}$$
 
 > **Where:**
 > * $\alpha$ = Learning rate
-> * $m$ = Number of dataset examples
+> * $m$ = Total number of dataset entries
 
 ---
 
@@ -85,9 +93,9 @@ $$\theta_1 := \theta_1 - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left( f(x^{(i)
 
 ```txt
 .
-├── data.csv            # Dataset containing Mileage (km) and Price
-├── train.py            # Gradient descent model trainer
-├── predict.py          # Interactive car price estimator
-├── visualize.py        # Matplotlib plotting utility
-├── theta.json          # Persistent file storing trained parameters
+├── data.csv            # Dataset (Mileage vs. Price)
+├── train.py            # Gradient descent training algorithm
+├── predict.py          # Interactive script to query predictions
+├── visualize.py        # Matplotlib visualization script
+├── theta.json          # Saved parameters (theta_0 and theta_1)
 └── README.md           # Documentation
