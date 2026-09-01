@@ -3,7 +3,6 @@
   <h1>📈 ft_linear_regression</h1>
   <p><strong>A implementation of univariate linear regression with gradient descent from scratch.</strong></p>
 
-  <!-- Badges -->
   <p>
     <a href="https://github.com/RadiantVixen/ft_linear_regression/stargazers">
       <img src="https://img.shields.io/github/stars/RadiantVixen/ft_linear_regression?style=for-the-badge&color=ff69b4" alt="Stars" />
@@ -19,7 +18,6 @@
     </a>
   </p>
 
-  <!-- Header Visual GIF -->
   <img src="https://miro.medium.com/1*OG1d4edy5BFYeQ0yHjBOJA.gif" alt="Gradient Descent Convergence GIF" width="650"/>
 
 </div>
@@ -33,13 +31,6 @@
   - [2. Feature Normalization](#2-feature-normalization)
   - [3. Gradient Descent Optimization](#3-gradient-descent-optimization)
 - [Project Architecture](#-project-architecture)
-- [Getting Started](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#-usage)
-  - [1. Train the Model](#1-train-the-model)
-  - [2. Predict Car Price](#2-predict-car-price)
-  - [3. Plot & Evaluate](#3-plot--evaluate)
 - [Visualizations](#-visualizations)
 
 ---
